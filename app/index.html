@@ -23,7 +23,7 @@
 <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
               <div class="navbar-inner">
                 <div class="container" style="width: auto;">
-                  <strong class="brand">Gathering Feedback for {{trainingSelected.name||'Training'}}</strong>
+                  <strong class="brand">Gathering Feedback for {{trainingSelected.name}}</strong>
                   <ul class="nav pull-right"><strong>Please Select a Training</strong>
                     <select ng-model="trainingSelected" ng-options='t.name for t in trainings'>
                     </select>
@@ -31,11 +31,76 @@
                 </div>
               </div>
             </div>
+    <div class="hero-unit">
+            <h2>Thank you for participating in {{trainingSelected.name}}</h2>
+            <h3>Tell us about yourself</h3>
+              <form class="form-inline">
+                <p>
+                <input ng-model="firstName" type="text"  placeholder="First Name">
+                <input ng-model="lastName" type="text"  placeholder="Last Name"></p>
+                <p>
+                <input ng-model="company" type="text"  placeholder="Company Name">
+                <input ng-model="jobPosition" type="text"  placeholder="Job Position">
+                <input ng-model="email" type="email"  placeholder="email">
+                </p>
+              </form>
+              <hr>
+              <h3>How would you rate the training?</h3>
+              <form class="form">
+                <div class="row">
+
+                <div class="span5"><label>How was the trainer's knowledge of the product?</label><select  ng-model="trainerKnowledge" ng-options='r.value for r in rating'></select></div>
+                <div class="span4"><label>How was the trainer's Presentation Skills?</label><select  ng-model="trainerSkill" ng-options='r.value for r in rating'></select></div>
+                <div class="span4"><label>How was the trainer's Attitude?</label><select  ng-model="trainerAttitude" ng-options='r.value for r in rating'></select></div>
+              </div>
+              <div class="row">
+                <div class="span5"><label>How was the quality of the Materials?</label><select  ng-model="materialQuality" ng-options='r.value for r in rating'></select></div>
+                <div class="span4"><label>How were the Hands-on Activities?</label><select  ng-model="handOnActivities" ng-options='r.value for r in rating'></select></div>
+                <div class="span4"><label>What is your overall impression?</label><select  ng-model="overall" ng-options='r.value for r in rating'></select></div>
+              </div>
+              </form>
+              <hr>
+              <h3>Would you please elaborate on your opinion?</h3>
+              <div class="row">
+                <div class="span6">
+                  <label>What were your expectations of this training?</label>
+                  <textarea ng-model="expectations" row="5" class="span6"></textarea>
+                </div>
+                <div class="span6">
+                  <label>What did you appreciate the most?</label>
+                  <textarea ng-model="plus" row="5" class="span6"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="span6">
+                  <label>What did you enjoy the least?</label>
+                  <textarea ng-model="minus" row="5" class="span6"></textarea>
+                </div>
+                <div class="span6">
+                  <label>How would you change this training?</label>
+                  <textarea ng-model="change" row="5" class="span6"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="span6">
+                  <label>How would you recommend this training?</label>
+                  <textarea ng-model="recommend" row="5" class="span6"></textarea>
+                </div>
+                <div class="span6">
+                  <label>Any comments you want to leave us?</label>
+                  <textarea ng-model="comment" row="5" class="span6"></textarea>
+                </div>
+              </div>
+              <hr>
+              <h3>Can you tell us about your project?</h3>
+              
+            </div> 
     <hr>
   <footer><p>Training Feedback app: v<span app-version></p></footer>
-<pre>{{trainingId}}
+<!--pre>{{trainingId}}
 {{trainingSelected}}
-{{trainings}}</pre>
+{{trainings}}
+{{selectedTraining}}</pre-->
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
   -->
