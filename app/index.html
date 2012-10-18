@@ -32,8 +32,8 @@
               </div>
             </div>
     <div class="hero-unit">
-            <h2>Thank you for participating in {{trainingSelected.name}}</h2>
-            <h3>Tell us about yourself</h3>
+            <h2>Thank you for attending {{trainingSelected.name}}</h2>
+            <legend>Tell us about yourself Dear {{firstName}} {{lastName}}</legend>
               <form class="form-inline">
                 <p>
                 <input ng-model="firstName" type="text"  placeholder="First Name">
@@ -45,22 +45,22 @@
                 </p>
               </form>
               <hr>
-              <h3>How would you rate the training?</h3>
+              <legend>How would you rate the training?</legend>
               <form class="form">
                 <div class="row">
 
-                <div class="span5"><label>How was the trainer's knowledge of the product?</label><select  ng-model="trainerKnowledge" ng-options='r.value for r in rating'></select></div>
-                <div class="span4"><label>How was the trainer's Presentation Skills?</label><select  ng-model="trainerSkill" ng-options='r.value for r in rating'></select></div>
-                <div class="span4"><label>How was the trainer's Attitude?</label><select  ng-model="trainerAttitude" ng-options='r.value for r in rating'></select></div>
+                <div class="span4"><label>How was the trainer's knowledge?</label><select  ng-model="trainerKnowledge" ng-options='r.value for r in rating|orderBy:order'></select></div>
+                <div class="span4"><label>How was the trainer's Presentation Skills?</label><select  ng-model="trainerSkill" ng-options='r.value for r in rating|orderBy:order'></select></div>
+                <div class="span4"><label>How was the trainer's Attitude?</label><select  ng-model="trainerAttitude" ng-options='r.value for r in rating|orderBy:order'></select></div>
               </div>
               <div class="row">
-                <div class="span5"><label>How was the quality of the Materials?</label><select  ng-model="materialQuality" ng-options='r.value for r in rating'></select></div>
-                <div class="span4"><label>How were the Hands-on Activities?</label><select  ng-model="handOnActivities" ng-options='r.value for r in rating'></select></div>
-                <div class="span4"><label>What is your overall impression?</label><select  ng-model="overall" ng-options='r.value for r in rating'></select></div>
+                <div class="span4"><label>How was the quality of the Materials?</label><select  ng-model="materialQuality" ng-options='r.value for r in rating|orderBy:order'></select></div>
+                <div class="span4"><label>How were the Hands-on Activities?</label><select  ng-model="handOnActivities" ng-options='r.value for r in rating|orderBy:order'></select></div>
+                <div class="span4"><label>What is your overall impression?</label><select  ng-model="overall" ng-options='r.value for r in rating|orderBy:order'></select></div>
               </div>
-              </form>
+              
               <hr>
-              <h3>Would you please elaborate on your opinion?</h3>
+              <legend>Would you please elaborate on your opinion?</legend>
               <div class="row">
                 <div class="span6">
                   <label>What were your expectations of this training?</label>
@@ -92,8 +92,27 @@
                 </div>
               </div>
               <hr>
-              <h3>Can you tell us about your project?</h3>
-              
+              <legend>Can you tell us about your project?</legend>
+              <div class="row">
+
+                <div class="span5"><label>When do you plan to start your Project?</label><input type="date"  ng-model="projectStartDate" ng-disabled="noProject">
+                </input>
+                 <label class="checkbox">
+                  <input type="checkbox" ng-model="noProject"> No Project
+                </label>
+              </div>
+                <div class="span6"><label>What is your Next Step?</label><select  class="span6" ng-model="nextStep" ng-disabled="noNextStep">
+                  <option value="learn">Leanr more about the technology</option>
+                  <option value="evaluate">Evaluate Intalio for my project</option>
+                  <option value="train">Attend more training</option>
+                  <option value="prototype">Start a Prototye/Proof of Concept</option>
+                  <option value="getHelp">Get professional services to help with my project</option>
+                </select>
+                               <label class="checkbox">
+                  <input type="checkbox" ng-model="noNextStep"> None, I will not continue with Intalio
+                </label></div>
+              </div>
+              </form>
             </div> 
     <hr>
   <footer><p>Training Feedback app: v<span app-version></p></footer>
